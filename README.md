@@ -21,3 +21,6 @@ Visit [releases](https://github.com/claration/Shasta/releases) and get the lates
 ## What are .ca files?
 
 Packages with the `.ca` extension are CAML (Core Animation Markup Language) bundles, they contain Core Animation trees encoded as XML and associated assets required by the encoded layer tree.
+
+## Acknowledgements
+- [CAARPlayer](https://github.com/insidegui/CAARPlayer) – `CAPackage` headers.
