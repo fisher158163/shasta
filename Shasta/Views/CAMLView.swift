@@ -22,10 +22,7 @@ struct CAMLView: NSViewRepresentable {
 	func makeNSView(context: Context) -> CAMLContainerView {
 		let container = CAMLContainerView()
 		container.wantsLayer = true
-		
-		guard let rootLayer = package.rootLayer else {
-			return container
-		}
+		guard let rootLayer = package.rootLayer else { return container }
 		
 		rootLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 		if package.isGeometryFlipped {
@@ -52,15 +49,11 @@ struct CAMLView: NSViewRepresentable {
 	}
 	
 	func updateNSView(_ nsView: CAMLContainerView, context: Context) {
-		guard
-			let controller = context.coordinator.stateController,
-			let layer = context.coordinator.rootLayer
-		else {
+		guard let controller = context.coordinator.stateController, let layer = context.coordinator.rootLayer else {
 			return
 		}
 		
 		let coordinator = context.coordinator
-		
 		coordinator.onScrubTick = { [animationDuration] time in
 			guard isPlaying else { return }
 			let clamped = min(time, animationDuration)
@@ -138,15 +131,8 @@ struct CAMLView: NSViewRepresentable {
 		
 		func startScrubTimer() {
 			_timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { [weak self] _ in
-				guard
-					let self,
-					let layer = rootLayer
-				else {
-					return
-				}
-				
+				guard let self, let layer = rootLayer else { return }
 				let t = layer.convertTime(CACurrentMediaTime(), from: nil)
-				
 				DispatchQueue.main.async {
 					self.onScrubTick?(t)
 				}

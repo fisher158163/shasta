@@ -14,22 +14,9 @@ class CAMLContainerView: NSView {
 	
 	override func layout() {
 		super.layout()
-		
-		guard let root = rootLayer else {
-			return
-		}
-		
+		guard let root = rootLayer else { return }
 		let ls = root.bounds.size
-		
-		guard
-			ls.width > 0,
-			ls.height > 0,
-			bounds.width > 0,
-			bounds.height > 0
-		else {
-			return
-		}
-		
+		guard ls.width > 0, ls.height > 0, bounds.width > 0, bounds.height > 0 else { return }
 		let scale = min(bounds.width / ls.width, bounds.height / ls.height) * 0.9
 		
 		CATransaction.begin()
