@@ -9,6 +9,9 @@
 @import Cocoa;
 @import QuartzCore;
 
+// extern = "这个符号定义在其他地方（系统库），这里只是声明它存在"
+// 告诉编译器：这些函数/变量不是在当前文件中实现的，而是在链接时从其他地方引入
+// 这三个符号来自 Apple 的私有 QuartzCore 框架
 extern NSData *CAEncodeLayerTree(CALayer *rootLayer);
 extern NSString *kCAPackageTypeArchive;
 extern NSString *kCAPackageTypeCAMLBundle;
