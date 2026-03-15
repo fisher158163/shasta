@@ -34,12 +34,12 @@ extern NSString *kCAPackageTypeCAMLBundle;
 
 @interface CAStateController: NSObject;
 @property (readonly) CALayer* layer; 
--(void)setState:(id)arg1 ofLayer:(id)arg2 transitionSpeed:(float)arg3 ;
--(void)setState:(id)arg1 ofLayer:(id)arg2 ;
--(id)stateOfLayer:(id)arg1 ;
+-(void)setState:(id)arg1 ofLayer:(id)arg2 transitionSpeed:(float)arg3;
+-(void)setState:(id)arg1 ofLayer:(id)arg2;
+-(id)stateOfLayer:(id)arg1;
 -(id)initWithLayer:(id)arg1;
--(void)setInitialStatesOfLayer:(id)arg1 transitionSpeed:(float)arg2 ;
--(void)_applyTransition:(id)arg1 layer:(id)arg2 undo:(id)arg3 speed:(float)arg4 ;
+-(void)setInitialStatesOfLayer:(id)arg1 transitionSpeed:(float)arg2;
+-(void)_applyTransition:(id)arg1 layer:(id)arg2 undo:(id)arg3 speed:(float)arg4;
 @end
 
 @interface CAState: NSObject;
